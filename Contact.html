@@ -1,0 +1,148 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Contact</title>
+	<link rel="stylesheet" href="streakup-styles.css">
+
+	<style>
+		.highlight-orange {
+			background-color: #ff7b40;
+			color: #ffffff;
+			padding: 0.2em 0.4em;
+			border-radius: 6px;
+		}
+
+		.intro-section {
+			display: flex;
+			gap: 30px;
+			align-items: flex-start;
+			margin: 40px 0;
+			flex-wrap: wrap;
+		}
+
+		.profile-image img {
+			width: 250px;
+			height: 250px;
+			border-radius: 10px;
+			object-fit: cover;
+			box-shadow: 0 4px 12px rgba(255, 123, 64, 0.3);
+		}
+
+		.intro-text {
+			flex: 1;
+			min-width: 250px;
+		}
+
+		.intro-text p {
+			font-size: 16px;
+			color: #d0d0d0;
+		}
+
+		.contact-info {
+			background-color: rgba(255, 123, 64, 0.1);
+			padding: 25px;
+			border-radius: 8px;
+			margin: 30px 0;
+			border-left: 4px solid #ff7b40;
+		}
+
+		.contact-info p {
+			margin: 10px 0;
+			font-size: 15px;
+		}
+
+		.contact-info p strong {
+			color: #ff7b40;
+			margin-right: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<button class="menu-toggle" id="menuToggle">
+		<span></span>
+		<span></span>
+		<span></span>
+	</button>
+
+	<div class="nav-overlay" id="navOverlay"></div>
+
+	<nav class="nav-menu" id="navMenu">
+		<div class="nav-menu-header">
+			<h2>Menu</h2>
+			<button class="nav-menu-close" id="menuClose">×</button>
+		</div>
+		<div class="nav-menu-links">
+			<a href="index.html">Home</a>
+			<a href="Feature%20Request%20for%20Streakup.html">Request a Feature</a>
+			<a href="Account%20Deletion.html">Account Deletion</a>
+			<a href="Report%20a%20Problem.html">Report a Problem</a>
+			<a href="Privacy%20Policy.html">Privacy Policy</a>
+			<a href="Terms%20Of%20Service.html">Terms Of Service</a>
+			<a href="Contact.html">Contact</a>
+		</div>
+	</nav>
+
+	<a href="index.html" class="floating-top-bar">
+		<img src="assets/icon.png" alt="StreakUp Icon" class="floating-icon">
+		<span>StreakUp</span>
+	</a>
+
+	<header>
+		<h1 class="page-title">Contact</h1>
+	</header>
+
+	<main class="page-content">
+		<article class="page">
+			<div class="page-body">
+				<h1>Hello, I'm <span class="highlight-orange">Mark</span></h1>
+
+				<div class="intro-section">
+					<div class="profile-image">
+						<img src="assets/profilepic.jpg" alt="Mark Kirner" />
+					</div>
+					<div class="intro-text">
+						<p>I'm a developer from Romania that wants to build beautiful apps that can inspire people to
+							take action and pursue their dreams. If I can help a community to succeed in their goals,
+							that's a win in my book.</p>
+					</div>
+				</div>
+
+				<h2>Contact Information</h2>
+				<div class="contact-info">
+					<p><strong>Name:</strong> Kirner Mark Adrian</p>
+					<p><strong>Email:</strong> <a href="mailto:mark.kirner.pro@gmail.com">mark.kirner.pro@gmail.com</a>
+					</p>
+					<p><strong>Address:</strong><br />
+						61 Rue Parmentier<br />
+						93380 Pierrefitte-sur-Seine<br />
+						France
+					</p>
+				</div>
+
+			</div>
+		</article>
+	</main>
+
+	<footer>
+		<div class="footer-content">
+			<h3 class="footer-title">Pages</h3>
+			<div class="footer-links">
+				<a href="Feature%20Request%20for%20Streakup.html">Request a Feature</a>
+				<a href="Account%20Deletion.html">Account Deletion</a>
+				<a href="Report%20a%20Problem.html">Report a Problem</a>
+				<a href="Privacy%20Policy.html">Privacy Policy</a>
+				<a href="Terms%20Of%20Service.html">Terms Of Service</a>
+				<a href="Contact.html">Contact</a>
+			</div>
+			<div class="footer-bottom">
+				by © Kirner Mark Adrian 2025
+			</div>
+		</div>
+	</footer>
+
+	<script src="menu.js" defer></script>
+</body>
+
+</html>
