@@ -5,7 +5,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StreakUp - Build Habits That Last</title>
-    <link rel="stylesheet" href="streakup-styles.css">
     <style>
         * {
             margin: 0;
@@ -18,167 +17,203 @@
             color: #e0e0e0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
+            overflow-x: hidden;
+            padding-top: 80px;
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 60px 20px 40px;
         }
 
-        header {
-            text-align: center;
-            margin-bottom: 60px;
+        /* Hero Section */
+        .hero-section {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
         }
 
         .page-title {
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             font-weight: 700;
+            line-height: 1.1;
             color: #ffffff;
             margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
         }
 
         .page-subtitle {
-            font-size: 1.3rem;
-            color: #ffffff;
-            font-weight: 600;
-        }
-
-        .hero-section {
-            justify-content: space-around;
-            display: flex;
-            gap: 30px;
-            align-items: center;
-            margin-bottom: 30px;
-            justify-content: center;
-        }
-
-        .hero-left {
-            flex: 0 0 auto;
-        }
-
-        .hero-right {
-            flex: 0 0 600px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .phone-mockup {
-            max-width: 250px;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
-
-        .info-card {
-            border-left: none;
-            /* remove that tiny line */
-            padding: 15px;
-            border-radius: 12px;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.5em;
-            color: #fff;
-            /* text color */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .info-card h3 {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-            color: #ffffff;
-        }
-
-        .info-card p {
-            color: #d0d0d0;
-            line-height: 1.5;
-            margin: 4px 0;
-        }
-
-
-        .card-orange {
-            background-color: hsla(29, 100%, 40%, 0.8);
-        }
-
-        .card-red {
-            background-color: hsla(354, 70%, 54%, 0.8);
-        }
-
-        .card-purple {
-            background-color: hsl(279, 33%, 56%, 0.8);
-        }
-
-        .info-card h3,
-        .info-card p {
-            color: #ffffff;
-            /* make sure text is readable */
+            font-size: 1.4rem;
+            color: #b0b0b0;
+            font-weight: 400;
+            margin-bottom: 35px;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
         }
 
         .play-badge {
             display: inline-block;
-            margin-top: 20px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .play-badge:hover {
+            transform: translateY(-5px);
         }
 
         .play-badge img {
-            width: 200px;
+            width: 100%;
+            max-width: 250px;
+            min-width: 180px;
         }
 
-        .cta-box {
-            background: rgba(40, 40, 40, 0.8);
-            border-radius: 12px;
-            padding: 40px;
+        .hero-image {
+            flex: 0 0 auto;
+            animation: fadeInRight 1s ease-out 0.4s both;
+        }
+
+        .phone-mockup {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+            transition: transform 0.5s ease;
+        }
+
+        .phone-mockup:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        /* Info Section */
+        .info-section {
+            max-width: 900px;
+            margin: 0 auto 80px;
             text-align: center;
-            margin: 60px 0;
-            border: 2px solid #333;
         }
 
-        .cta-box h2 {
-            font-size: 1.8rem;
+        .info-item {
+            margin-bottom: 50px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .info-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-item h3 {
+            font-size: 2rem;
             color: #ffffff;
             margin-bottom: 15px;
-        }
-
-        .cta-box p {
-            color: #b0b0b0;
-            margin-bottom: 25px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: #ff7b00;
-            color: #ffffff;
-            padding: 15px 40px;
-            border-radius: 8px;
-            text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: background 0.3s ease;
+            position: relative;
+            display: inline-block;
         }
 
-        .cta-button:hover {
-            background: #ff9933;
+        .info-item h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #ff7b00, #ff9933);
+            border-radius: 2px;
+            transition: transform 0.6s ease-out 0.3s;
         }
 
+        .info-item.animate h3::after {
+            transform: translateX(-50%) scaleX(1);
+        }
+
+        .info-item p {
+            font-size: 1.15rem;
+            color: #b0b0b0;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 15px auto 0;
+        }
+
+        .info-item strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* Feature Section */
         .section {
-            margin: 0px 0;
+            margin: 60px 0;
         }
 
         .section-title {
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: #ffffff;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             text-align: center;
+            padding: 0 10px;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .section-title.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-description {
+            text-align: center;
+            color: #b0b0b0;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            padding: 0 10px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
+        }
+
+        .section-description.animate {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .feature-row {
             display: flex;
             gap: 60px;
             align-items: center;
-            margin: 60px 0;
+            margin: 0 auto;
             justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+        }
+
+        .feature-row.animate {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .feature-row.reverse {
@@ -191,204 +226,418 @@
 
         .feature-image img {
             max-width: 350px;
+            width: 100%;
+            height: auto;
             border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            display: block;
+        }
+
+        .feature-image img:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(255, 123, 0, 0.3);
         }
 
         .feature-text {
             flex: 0 0 500px;
+            max-width: 500px;
         }
 
         .feature-text h2 {
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             color: #ffffff;
             margin-bottom: 15px;
+            font-weight: 600;
         }
 
         .feature-text p {
-            color: #d0d0d0;
+            color: #b0b0b0;
             line-height: 1.8;
-            margin: 10px 0;
+            margin: 8px 0;
+            font-size: 1.05rem;
         }
 
         .divider {
             height: 2px;
-            background: rgba(255, 255, 255, 0.1);
-            margin: 80px 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+            margin: 70px auto;
+            max-width: 80%;
+            opacity: 0;
+            transform: scaleX(0);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
-        .mini-divider {
-            height: 1px;
-
-            margin: 5px 0;
+        .divider.animate {
+            opacity: 1;
+            transform: scaleX(1);
         }
 
+        .responsive-image-container {
+            text-align: center;
+            margin: 30px auto 0;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+        }
 
+        .responsive-image-container.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-        @media (max-width: 500px) {
+        .responsive-image {
+            width: 100%;
+            max-width: 700px;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+            height: auto;
+            display: inline-block;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
 
-            .hero-section,
-            .feature-row {
-                flex-direction: column;
-                text-align: center;
+        .responsive-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 70px rgba(255, 123, 0, 0.3);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
 
-            .feature-row.reverse {
-                flex-direction: column;
-            }
-
-            .hero-right,
-            .feature-text {
-                flex: 1 1 auto;
-                max-width: 300px;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        @media (max-width: 768px) {
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Tablet screens */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 50px 20px 40px;
+            }
+
             .page-title {
-                font-size: 2.2rem;
-                text-decoration-color: #ff7b00;
-
+                font-size: 2.8rem;
             }
 
             .page-subtitle {
-                font-size: 1.3rem;
-                color: #ff7b00;
-
+                font-size: 1.2rem;
             }
 
-            .phone-mockup,
-            .feature-image img {
+            .hero-section {
+                gap: 40px;
+            }
+
+            .phone-mockup {
                 max-width: 280px;
             }
 
-            .footer-links {
-                flex-direction: column;
-                gap: 15px;
+            .info-item h3 {
+                font-size: 1.8rem;
+            }
+
+            .info-item p {
+                font-size: 1.05rem;
+            }
+
+            .divider {
+                margin: 60px auto;
             }
         }
 
+        /* Mobile screens */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 90px;
+            }
+
+            .container {
+                padding: 30px 15px;
+            }
+
+            .floating-top-bar {
+                top: 15px;
+                padding: 8px 18px;
+                right: 15px;
+            }
+
+            .floating-icon {
+                width: 28px;
+                height: 28px;
+            }
+
+            .floating-title {
+                font-size: 1.05rem;
+            }
+
+            .menu-toggle {
+                top: 15px;
+                left: 15px;
+            }
+
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+                margin-bottom: 50px;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .page-subtitle {
+                font-size: 1.05rem;
+            }
+
+            .phone-mockup {
+                max-width: 240px;
+            }
+
+            .info-section {
+                margin-bottom: 50px;
+            }
+
+            .info-item {
+                margin-bottom: 40px;
+            }
+
+            .info-item h3 {
+                font-size: 1.5rem;
+            }
+
+            .info-item p {
+                font-size: 0.98rem;
+                padding: 0 10px;
+            }
+
+            .section {
+                margin: 40px 0;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+                margin-bottom: 15px;
+            }
+
+            .section-description {
+                font-size: 0.98rem;
+                margin-bottom: 20px;
+            }
+
+            .feature-row,
+            .feature-row.reverse {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .feature-image {
+                width: 100%;
+            }
+
+            .feature-image img {
+                max-width: 100%;
+                width: 90%;
+            }
+
+            .feature-text {
+                flex: 1 1 auto;
+                max-width: 100%;
+            }
+
+            .feature-text h2 {
+                font-size: 1.5rem;
+                margin-bottom: 12px;
+            }
+
+            .feature-text p {
+                font-size: 0.98rem;
+                margin: 6px 0;
+            }
+
+            .divider {
+                margin: 40px auto;
+            }
+
+            .responsive-image-container {
+                margin: 20px auto 0;
+            }
+
+            .responsive-image {
+                max-width: 90%;
+            }
 
 
-        .top-padding-link {
-            padding-top: 30px;
+        }
 
-            display: inline-block;
+        /* Small mobile screens */
+        @media (max-width: 480px) {
+            body {
+                padding-top: 85px;
+            }
 
+            .container {
+                padding: 25px 12px;
+            }
+
+            .page-title {
+                font-size: 1.75rem;
+            }
+
+            .page-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .phone-mockup {
+                max-width: 210px;
+            }
+
+            .hero-section {
+                gap: 25px;
+                margin-bottom: 40px;
+            }
+
+            .info-section {
+                margin-bottom: 40px;
+            }
+
+            .info-item {
+                margin-bottom: 35px;
+            }
+
+            .info-item h3 {
+                font-size: 1.35rem;
+            }
+
+            .info-item p {
+                font-size: 0.92rem;
+            }
+
+            .section {
+                margin: 35px 0;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+                margin-bottom: 12px;
+            }
+
+            .section-description {
+                font-size: 0.92rem;
+                margin-bottom: 18px;
+            }
+
+            .feature-row,
+            .feature-row.reverse {
+                gap: 18px;
+            }
+
+            .feature-image img {
+                display: block;
+                margin: 0 auto;
+                max-width: 260px;
+            }
+
+            .feature-text h2 {
+                font-size: 1.35rem;
+                margin-bottom: 10px;
+            }
+
+            .feature-text p {
+                font-size: 0.92rem;
+                margin: 5px 0;
+            }
+
+            .play-badge img {
+                min-width: 160px;
+                max-width: 200px;
+            }
+
+            .divider {
+                margin: 35px auto;
+            }
+
+            .responsive-image {
+                max-width: 95%;
+            }
+        }
+
+        /* Extra small screens */
+        @media (max-width: 360px) {
+            .page-title {
+                font-size: 1.55rem;
+            }
+
+            .phone-mockup {
+                max-width: 190px;
+            }
+
+            .info-item h3 {
+                font-size: 1.25rem;
+            }
+
+            .info-item p {
+                font-size: 0.88rem;
+            }
         }
     </style>
 </head>
 
 <body>
-    <button class="menu-toggle" id="menuToggle">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+    <div id="navigation-container"></div>
 
-    <div class="nav-overlay" id="navOverlay"></div>
-
-    <nav class="nav-menu" id="navMenu">
-        <div class="nav-menu-header">
-            <h2>Menu</h2>
-            <button class="nav-menu-close" id="menuClose">×</button>
-        </div>
-        <div class="nav-menu-links">
-            <a href="index.html">Home</a>
-            <a href="Feature%20Request%20for%20Streakup.html">Request a Feature</a>
-            <a href="Account%20Deletion.html">Account Deletion</a>
-            <a href="Report%20a%20Problem.html">Report a Problem</a>
-            <a href="Privacy%20Policy.html">Privacy Policy</a>
-            <a href="Terms%20Of%20Service.html">Terms Of Service</a>
-            <a href="Contact.html">Contact</a>
-        </div>
-    </nav>
-
-    <a href="index.html" class="floating-top-bar">
-        <img src="assets/icon.png" alt="StreakUp Icon" class="floating-icon">
-        <span class="floating-title">StreakUp</span>
-    </a>
-
+    <div id="floating-bar-container"></div>
 
     <div class="container">
-
-
-
+        <!-- Hero Section -->
         <section class="hero-section">
-
-            <img src="assets/screens/notes_view.png" alt="StreakUp App" class="phone-mockup">
-            <div class="mini-divider">
-
+            <div class="hero-content">
+                <h1 class="page-title">Start sticking to your goals</h1>
+                <p class="page-subtitle">It's not about being perfect, but being consistent. Turn consistency into your
+                    superpower!</p>
+                <a href="https://play.google.com/store/apps/details?id=com.mkaapps.streakup" target="_blank"
+                    class="play-badge">
+                    <img src="assets/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
+                </a>
             </div>
-
-            <div class="hero-right">
-                <div class="info-card card-orange" style="display:flex; align-items:flex-start; gap:0.5em;">
-                    <div style="flex-shrink:0; width:1.5em; height:1.5em;">
-                        <img src="assets/question.svg" alt="Cloud Sync" style="width:100%; height:100%;" />
-                    </div>
-                    <div style="display:flex; flex-direction: column; gap:0.25em;">
-                        <h3>What is StreakUp?</h3>
-                        <p><strong>StreakUp</strong> is a habit tracker built to keep you consistent, not just for a
-                            week,
-                            but for the long haul. Smooth animations, a polished interface, and smart streak logic keep
-                            you
-                            motivated and on track, making building productive habits feel effortless.</p>
-                    </div>
-                </div>
-
-                <div class="info-card card-red" style="display:flex; align-items:flex-start; gap:0.5em;">
-                    <!-- Icon -->
-                    <div style="flex-shrink:0; width:1.5em; height:1.5em;">
-                        <img src="assets/book.svg" alt="Cloud Sync" style="width:100%; height:100%;" />
-                    </div>
-
-                    <!-- Content column -->
-                    <div style="display:flex; flex-direction: column; gap:0.25em;">
-                        <h3 style="margin:0;">Status: Released!</h3>
-                        <p>After 1+ years, StreakUp is now <em><strong>available for Android</strong></em>,
-                            Go start creating new and powerful routines!</p>
-
-                    </div>
-                </div>
-
-                <div class="info-card card-purple" style="display:flex; align-items:flex-start; gap:0.5em;">
-                    <!-- SVG icon -->
-                    <div style="flex-shrink:0; width:1.5em; height:1.5em; ">
-                        <img src="assets/cloud.svg" alt="Cloud Sync" style="width:100%; height:100%; color:#ff0000;" />
-                    </div>
-                    <div>
-                        <h3 style="margin:0;">Cloud Sync</h3>
-                        <p>No matter the tier, we offer all of our users with Cloud Sync, so that they can access
-                            StreakUp
-                            from any other mobile device and prevent losing data.</p>
-                    </div>
-                </div>
+            <div class="hero-image">
+                <img src="assets/screens/notes_view.png" alt="StreakUp App" class="phone-mockup">
             </div>
         </section>
-        <header>
-            <p class="page-title">Join StreakUp, Your Personalized Habit Tracker</p>
-            <div class="mini-divider"></div>
-            <p class="page-subtitle">It's not about being perfect, but being consistent.
-                Create habits that fit you, note your progress, and let StreakUp remind you why you started. Watch your
-                streaks grow and celebrate your progress every day. Start today and turn consistency into your
-                superpower!</p>
 
-            <a href="https://play.google.com/store/apps/details?id=com.mkaapps.streakup" target="_blank"
-                class="top-padding-link">
-                <img src="assets/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" style="min-width:350px;">
-            </a>
-        </header>
+        <!-- Info Section -->
+        <section class="info-section">
+            <div class="info-item scroll-animate">
+                <h3>What is StreakUp?</h3>
+                <p><strong>StreakUp</strong> is a habit tracker built to keep you consistent, not just for a week, but
+                    for the long haul. Smooth animations, a polished interface, and smart streak logic keep you
+                    motivated and on track, making building productive habits feel effortless.</p>
+            </div>
+        </section>
 
-        <!-- <div class="cta-box">
-            <h2>Request access for StreakUp by filling out this contact form</h2>
-            <p>Please allow a few days for a response to your email after submission.</p>
-            <a href="https://tally.so/r/npEorP" target="_blank" class="cta-button">🚀 Request Beta Access</a>
-        </div> -->
+        <div class="divider scroll-animate"></div>
 
-        <div class="divider"></div>
-
+        <!-- Features -->
         <section class="section">
-            <div class="feature-row">
+            <div class="feature-row scroll-animate">
                 <div class="feature-image">
                     <img src="assets/screens/edit_streak.png" alt="Create custom streaks">
                 </div>
@@ -400,10 +649,10 @@
             </div>
         </section>
 
-        <div class="divider"></div>
+        <div class="divider scroll-animate"></div>
 
         <section class="section">
-            <div class="feature-row reverse">
+            <div class="feature-row reverse scroll-animate">
                 <div class="feature-image">
                     <img src="assets/screens/friend_streak.png" alt="Friend streaks">
                 </div>
@@ -415,29 +664,29 @@
             </div>
         </section>
 
-        <div class="divider"></div>
+        <div class="divider scroll-animate"></div>
 
         <section class="section">
-            <h2 class="section-title">Keep track of your streak with the Home Widget!</h2>
-            <p style="text-align: center; color: #d0d0d0; max-width: 700px; margin: 0 auto 40px;">Add a widget to your
-                phone's home screen to stay on top of your habits or activities. The widget syncs seamlessly with your
-                app's theme and status, so it always looks just right!</p>
-            <div style="text-align: center;">
-                <img src="assets/screens/home_widget.png" alt="Home widget"
-                    style="max-width: 600px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);">
+            <h2 class="section-title scroll-animate">Keep track of your streak with the Home Widget!</h2>
+            <p class="section-description scroll-animate">Add a widget to your phone's home screen to stay on top of
+                your habits or
+                activities. The widget syncs seamlessly with your app's theme and status, so it always looks just right!
+            </p>
+            <div class="responsive-image-container scroll-animate">
+                <img src="assets/screens/home_widget.png" alt="Home widget" class="responsive-image">
             </div>
         </section>
 
-        <div class="divider"></div>
+        <div class="divider scroll-animate"></div>
 
         <section class="section">
-            <h2 class="section-title">Supports 5+ languages like English, French, Spanish and more!</h2>
+            <h2 class="section-title scroll-animate">Supports 5+ languages like English, French, Spanish and more!</h2>
         </section>
 
-        <div class="divider"></div>
+        <div class="divider scroll-animate"></div>
 
         <section class="section">
-            <div class="feature-row">
+            <div class="feature-row scroll-animate">
                 <div class="feature-text">
                     <h2>Personalize with Themes!</h2>
                     <p>With Premium, you can make your tracking more enjoyable with your favorite color!</p>
@@ -448,35 +697,48 @@
             </div>
         </section>
 
-        <div class="divider"></div>
+        <div class="divider scroll-animate"></div>
 
-        <section>
-            <h2 class="section-title">Building with your feedback</h2>
-            <p style="text-align: center; color: #d0d0d0; max-width: 700px; margin: 0 auto;">Help in the development of
-                StreakUp by giving feature, design, new language support ideas,</p>
-            <p style="text-align: center; color: #d0d0d0; max-width: 700px; margin: 0 auto 0px;"><strong>Let's make it
-                    happen, together!</strong></p>
-
+        <section class="section">
+            <h2 class="section-title scroll-animate">Building with your feedback</h2>
+            <p class="section-description scroll-animate">Help in the development of StreakUp by giving feature, design,
+                new language
+                support ideas.</p>
+            <p class="section-description scroll-animate" style="margin-top: 10px; color: #ffffff; font-weight: 600;">
+                Let's make it
+                happen, together!</p>
         </section>
     </div>
 
-    <footer>
-        <div class="footer-content">
-            <h3 class="footer-title">Pages</h3>
-            <div class="footer-links">
-                <a href="Feature%20Request%20for%20Streakup.html">Request a Feature</a>
-                <a href="Account%20Deletion.html">Account Deletion</a>
-                <a href="Report%20a%20Problem.html">Report a Problem</a>
-                <a href="Privacy%20Policy.html">Privacy Policy</a>
-                <a href="Terms%20Of%20Service.html">Terms Of Service</a>
-                <a href="Contact.html">Contact</a>
-            </div>
-            <div class="footer-bottom">
-                by © Kirner Mark Adrian 2025
-            </div>
-        </div>
-    </footer>
-    <script src="menu.js" defer></script>
+
+    <div id="footer-container"></div>
+
+    <script src="js/load-components.js" defer></script>
+    <script>
+
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    // Unobserve after animation to prevent re-triggering
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with scroll-animate class
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('.scroll-animate');
+            animateElements.forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 
 </html>
